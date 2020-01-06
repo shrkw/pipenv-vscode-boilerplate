@@ -6,23 +6,11 @@ brew install pipenv
 pipenv install
 ```
 
-
 ## Make Project Directory
 
 ```
-PIPENV_VENV_IN_PROJECT=true pipenv install
-```
-
-## Deploy
-```
-$ pipenv lock -r > requirements.txt
-$ gcloud functions deploy main --runtime python37 --trigger-http
-```
-
-## Run
-
-```
-$ gcloud functions call main --data {}
+VERSION=3.8.0
+PIPENV_VENV_IN_PROJECT=true pipenv --python=$(pyenv root)/versions/${VERSION}/bin/python install
 ```
 
 ## References
